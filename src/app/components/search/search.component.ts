@@ -17,7 +17,7 @@ export class SearchComponent  {
 
      if ( this.termino.length > 1 ) {
       this._spotify.getArtistas( this.termino).subscribe( resp => {
-        console.log(resp);
+        // console.log(resp);
         // quitar loading
      });
 

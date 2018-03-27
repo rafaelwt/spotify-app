@@ -1,0 +1,47 @@
+<div class=" mt-5 container-fluid">
+  <div class="row">
+    <div class="col-md-5 text-center">
+      <img  class="img-circle rounded-circle" [src]= "artista.images | sinfoto">
+    </div>
+    <div class="col-md-7">
+      <h1>{{ artista.name }}</h1>
+      <hr>
+      <a  [href]="artista.external_urls?.spotify" target="_blank" class="btn btn-outline-success">Abrir Spotify</a>
+      <button [routerLink]="['/search']" type="button" class="btn btn-outline-danger">volver</button>
+    </div>
+  </div>
+ <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Populariadad</th>
+            <th scope="col">Escuchar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pista of pistas; let i = index">
+            <th scope="row">{{ i+1 }}</th>
+            <td>
+              <img [src]="pista.album.images | sinfoto" class="img-50" >
+            </td>
+            <td>{{ pista.name }}</td>
+            <td> {{ pista.popularity }}% </td>
+            <td>
+                <iframe [src]="pista.uri | domseguro:'https://open.spotify.com/embed?uri=' " width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+           <!--    <audio controls>
+                <source [src]="pista.preview_url">
+                  Tu navegador es muy viejo
+              </audio> -->
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

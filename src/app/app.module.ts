@@ -10,12 +10,18 @@ import { FormsModule } from '@angular/forms';
 // service
 import { HttpClientModule } from '@angular/common/http';
 import { SpotifyService } from './services/spotify.service';
+import { SinfotoPipe } from './pipes/sinfoto.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { ArtistComponent } from './components/artist/artist.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    NavbarComponent
+    NavbarComponent,
+    SinfotoPipe,
+    DomseguroPipe,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
